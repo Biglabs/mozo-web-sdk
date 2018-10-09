@@ -24,11 +24,17 @@ async function GetAddressBook() {
   return await get("address-book")
 }
 
+async function GetTxStatus(data) {
+  return await get("transaction/txstatus", data)
+}
+
+
 export const Services = {
   checkWallet: CheckWallet,
   sendTransaction: SendTransaction,
   getAddressWallet: GetAddressWallet,
   getWalletBalance: GetWalletBalance,
   getTxHistory: GetTxHistory,
-  getAddressBook: GetAddressBook
+  getAddressBook: GetAddressBook,
+  getTxStatus: GetTxStatus
 }

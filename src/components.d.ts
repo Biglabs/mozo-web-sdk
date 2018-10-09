@@ -26,8 +26,8 @@ declare global {
 }
 
 import 'st-popup-menu';
-import 'ionicons';
 import '@ionic/core';
+import 'ionicons';
 
 
 declare global {
@@ -103,6 +103,7 @@ declare global {
   namespace StencilComponents {
     interface MozoHistory {
       'coinType': string;
+      'maxHeight': string;
     }
   }
 
@@ -126,6 +127,7 @@ declare global {
   namespace JSXElements {
     export interface MozoHistoryAttributes extends HTMLAttributes {
       'coinType'?: string;
+      'maxHeight'?: string;
     }
   }
 }
