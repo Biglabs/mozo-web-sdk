@@ -39,6 +39,7 @@ npm start
 - Run `npm install mozo-sdk-ui --save`
 - Add this import to your root component or root module: `import { defineCustomElements } from 'mozo-sdk-ui';`;
 - Call `defineCustomElements(window);` in your js file
+- [Refer to Stencil](https://stenciljs.com/docs/overview)
 
 
 ## Example usage
