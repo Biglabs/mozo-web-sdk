@@ -1,0 +1,56 @@
+st-auto-complete {
+    position: absolute;
+    top:0;
+    left:0;
+    margin: 0;
+    padding: 0;
+    height: 0;
+  
+    --arrow-pos: 10%;
+    --background-color: white;
+    --border-color: black;
+    --border-width: 1px;
+  }
+  st-auto-complete > div {
+    visibility: hidden;
+    background: var(--background-color);
+    border: var(--border-width) solid var(--border-color);
+    position: relative;
+  }
+  
+  st-auto-complete > div.visible {
+    visibility: visible;
+  }
+  
+  st-auto-complete > div img {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /* ==========================================================================
+     ARROW
+     ==========================================================================
+  */
+  
+  st-auto-complete > div:after, st-auto-complete > div:before {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    left: var(--arrow-pos);
+  }
+  
+  st-auto-complete > div:after {
+    border-bottom-color: var(--background-color);
+    border-width: 10px;
+    margin-left: -10px;
+  }
+  st-auto-complete > div:before {
+    border-bottom-color: var(--border-color);
+    border-width: calc( 10px + var(--border-width) );
+    margin-left: calc( -10px - var(--border-width) );
+  }

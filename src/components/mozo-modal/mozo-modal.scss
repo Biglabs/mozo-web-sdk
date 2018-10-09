@@ -1,0 +1,118 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+mozo-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color:rgba(0, 0, 0, 0.2);
+    z-index: 10000;;
+
+    > div {
+    
+    text-align: left;
+    box-shadow: 0 5px 22px 0 rgba(0, 0, 0, 0.2);
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    width: 100%;
+    max-width: 300px;
+    
+    left: 50%;
+    z-index: 100001;
+    padding: 20px;
+    opacity: 0;
+    animation-name: AMbounceIn;
+    animation-duration: 350ms;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    transform: translate3d(-50%, -50%, 0);
+    will-change: transform;
+    @include border-radius($border-radius);
+
+    &.modal-md {
+      max-width: 450px;
+    }
+
+    .btn-close {
+      position: absolute;
+      right: 8px;
+      top: 10px;
+    }
+
+    & .am-icon-box {
+      width: 80px;
+      height: 80px;
+      border-width: 4px;
+      border-style: solid;
+      border-color: rgb(255, 64, 64);
+      border-radius: 50%;
+      padding: 0;
+      position: relative;
+      box-sizing: content-box;
+      margin: 20px auto;
+    }
+
+    & .am-icon-error {
+      background-color: rgb(255, 64, 64);
+    }
+
+    & .am-icon {}
+
+    & .am-icon-error-line {
+      position: absolute;
+      height: 5px;
+      width: 47px;
+      display: block;
+      top: 37px;
+      border-radius: 2px;
+    }
+
+    & .am-icon-error-line-right {
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      right: 16px;
+    }
+
+    & .am-icon-error-line-left {
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      left: 17px;
+    }
+
+    // & button {
+    //   background-color: transparent;
+    //   border: none;
+    //   outline: none;
+    //   font: inherit;
+    //   cursor: pointer;
+    //   color: purple;
+    // }
+
+  }
+}
+
+@keyframes AMbounceIn {
+  0% {
+    opacity: 0;
+    //transform: scale(0.3) translate3d(-50%, -50%, 0);
+  }
+
+  50% {
+    opacity: 0.9;
+    //transform: scale(1.05) translate3d(-52%, -52%, 0);
+  }
+
+  80% {
+    opacity: 1;
+    //transform: scale(0.93) translate3d(-51%, -51%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    //transform: scale(1) translate3d(-50%, -50%, 0);
+  }
+}

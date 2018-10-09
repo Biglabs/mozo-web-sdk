@@ -1,0 +1,35 @@
+$enable-rounded: true;
+
+$primary-color: #5a9cf5;
+
+$border-color: #d1d7dd;
+
+
+
+$background: $primary-color;
+$hover-background: #006dff;
+$active-background: #0c56ba;
+$disabled-background: #cacaca;
+
+$background-hover: #e1effd;
+
+$border: $background;
+$hover-border: $hover-background;
+$active-border: $active-background;
+$disabled-border: $disabled-background;
+
+$font-size: 14px;
+$font-size-small: 90%;
+$line-height: 18px;
+$border-radius: 5px;
+
+$padding-x: 15px;
+$padding-y: 12px;
+
+$input-border: $border-color;
+$input-active-border: $background;
+
+$text-color: #141a22;
+$text-error: #f25250;
+$label-color: #969696;
+$text-note-color: #c1c1c1;

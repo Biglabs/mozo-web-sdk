@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: $text-color;
+  font-size: 14px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-error {
+  color: $text-error;
+  font-size: $font-size-small;
+}
+
+.text-note {
+  color: $text-note-color;
+  font-size: $font-size-small;
+  font-style: italic;
+}
+
+.text-normal {
+  font-size: 100%;
+  font-style: inherit;
+}
+.text-link {
+  color: $primary-color;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a.text-link {
+  cursor: pointer;
+}
+
+.text-primary {
+  color: $primary-color;
+}
+
+.text-lg {
+  font-size: 150%;
+}
+
+.text-inline {
+  display: inline-flex;
+  max-width: 100%;
+
+  svg {
+    margin-top: 2px;
+  }
+
+  svg.small {
+    margin-top: 1px;
+  }
+}
+
+.text-address {
+  width: 100%;
+  display: flex;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+  &.copy {
+    width: calc(100% - 50px);
+  }
+}
+
+.qr-code-container {
+  position: relative;
+  padding-right: 148px;
+}
+
+.qr-code-img{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 148px;
+  height: 148px;
+  max-height: 100%;
+}
+
+.mt-x-sm {
+  margin-top: 5px;
+}
+
+.mt-md {
+  margin-top: 15px;
+}
+
+.mt-lg {
+  margin-top: 25px;
+}
+
+.scroll-bar-container{
+  max-height: 300px;
+}
+
+ion-popover  {
+  ion-backdrop {
+    opacity: 0 !important;
+  }
+}
+
+.dropdown {
+  .popover-content {
+    margin-top: 34px;
+  }
+}
+
+ion-popover.widh-md {
+  .popover-content {
+    min-width: 350px;
+  }
+}
+
+ion-popover .popover-content, ion-popover .popover-content.sc-ion-popover-md {
+  border:1px solid $border-color;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.popover-content {
+  //padding: 10px 15px;
+
+  .scroll-bar-container {
+    //margin-right: -10px;
+  }
+}
+// .simplebar-track{
+//   margin-bottom: 5px;
+// }
+
+.drop-down {
+  display: none;
+  position: absolute;
+  background: #fff;
+  z-index: 99;
+  width: 100%;
+  max-width: 350px;
+  border: 1px solid $border-color;
+  margin-top: -35px;
+
+  .list .item {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .simplebar-track.vertical {
+    right: 5px;
+  }
+}
+
+small {
+  font-size: $font-size-small;
+}
+
+.line-sm {
+  .form-label {
+    margin-bottom: 8px;
+  }
+}
