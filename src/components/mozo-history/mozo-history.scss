@@ -67,7 +67,15 @@ mozo-history {
       align-items: inherit;
       -ms-flex-item-align: stretch;
       align-self: stretch;
-      text-align: right
+      text-align: right;
+
+      .received {
+        color: $primary-color;
+      }
+
+      .failed {
+        color: $text-error;
+      }
     }
 
     label.text {

@@ -276,15 +276,15 @@ async function TransactionDetail(data) {
       <h5>Transaction Detail</h5>
     </div>
     <div class="mozo-box text-center mt-lg line-sm">
-    <h5 class="text-primary">Sent</h5>
+    <h5 class="text-primary">${data.status}</h5>
     <label class="form-label"><i>${data.time}</i></label>
     
     <div class="form-group mt-md">
-      <label class="form-label">Receiver Address</label><br />
-      <label>${data.addressTo}</label>
+      <label class="form-label">${data.status.toLowerCase() == "sent" ? "Receiver Address": "Sender Address"} </label><br />
+      <label>${data.status.toLowerCase() == "sent" ? data.addressTo : data.addressFrom}</label>
     </div>
     <div class="form-group mt-md">
-      <label class="form-label">Receiver Address</label><br />
+      <label class="form-label">Amount</label><br />
       <label class="text-primary text-inline">
         <svg style="margin-top: 0;" xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 24 24">
           <g fill="none" fill-rule="evenodd">
