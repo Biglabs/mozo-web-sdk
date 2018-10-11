@@ -71,7 +71,6 @@ export class MozoOffChain {
 
         if (walletResult) {
           if (walletResult.status == "SUCCESS") {
-            console.log(walletResult.data)
             this.amountState = walletResult.data.balance
             this.addressState = walletResult.data.address
             this.accessWallet = true
@@ -94,8 +93,6 @@ export class MozoOffChain {
     } else {
       this.accessWallet = false
     }
-
-    console.log(this.addressState)
   }
 
   handleChangeAmount(event) {
@@ -107,8 +104,6 @@ export class MozoOffChain {
     } else {
       this.amountIsWrong = false
     }
-
-    console.log(this.addressState)
   }
 
   copyAddress() {
@@ -128,11 +123,7 @@ export class MozoOffChain {
                   <path fill="#FFF" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width=".9" d="M14.582 7.04c.794-.13 2.875-.114 3.743 2.746.528 1.742.33 3.587 0 5.252h.505c.094 0 .17.079.17.176v.61a.173.173 0 0 1-.17.176h-1.903a.173.173 0 0 1-.17-.175v-.611c0-.097.076-.176.17-.176h.53c.26-.85.256-2.844-.107-4.167-.304-1.315-1.26-2.383-2.454-2.383-.587 0-2.39.077-2.713 4.584v.24h-.366v-.24c-.323-4.507-2.126-4.584-2.713-4.584-1.194 0-2.15 1.068-2.454 2.383-.363 1.323-.368 3.316-.107 4.167h.53c.094 0 .17.079.17.176v.61a.173.173 0 0 1-.17.176H5.17a.173.173 0 0 1-.17-.175v-.611c0-.097.076-.176.17-.176h.505c-.33-1.665-.528-3.51 0-5.252.868-2.86 2.949-2.876 3.743-2.745 1.454.302 2.204 1.34 2.582 2.555.378-1.216 1.128-2.253 2.582-2.555z" />
                 </g>
               </svg>&nbsp;<span id="mozoAddress">{new Intl.NumberFormat().format(this.amountState)}</span></label> :
-              <label class="text-note">You must be <a class="text-link" onClick={() => ShowMessage.openWallet(
-                () => {
-
-                }
-              )}>Login</a> to use this function</label>}
+              <label class="text-note">You must be <a class="text-link" onClick={() => Services.login()}>Login</a> to use this function</label>}
           </div>
         </div>
         {this.accessWallet && <div>
@@ -150,7 +141,6 @@ export class MozoOffChain {
           
           {this.addressState && QRCode.toDataURL(this.addressState)
             .then(url => {
-              console.log(url)
               this.urlQRcode = url
             })
             .catch(err => {

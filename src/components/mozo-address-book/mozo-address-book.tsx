@@ -18,6 +18,7 @@ export class MozoAddressBook {
   @State() addressBookData: any[] = []
 
   @Event() selectAddressBook: EventEmitter;
+  
   selectAddressBookHandler(addressItem: any) {
     this.selectAddressBook.emit(addressItem);
   }

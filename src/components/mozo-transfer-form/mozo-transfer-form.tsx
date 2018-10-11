@@ -1,5 +1,4 @@
 import { Component, Prop, State, Method, Element, Listen } from '@stencil/core';
-import 'st-popup-menu'
 
 import { ShowMessage } from "../../utils/helpers"
 import { Services } from "../../services"
@@ -25,7 +24,6 @@ export class MozoTransferForm {
 
   @Listen('selectAddressBook')
   selectAddressBookCompletedHandler(event: CustomEvent) {
-    console.log('Test Received the custom todoCompleted event: ', event.detail);
     this.toAddressState = event.detail.soloAddress
     if (event.detail.soloAddress.trim() == "" || !(/^(0x)?[0-9a-fA-F]{40}$/.test(event.detail.soloAddress.trim()))) {
       this.addressIsWrong = true
@@ -86,10 +84,6 @@ export class MozoTransferForm {
     let targetEl = document.querySelector("#importAddress") as HTMLElement
 
     document.addEventListener('click', (e) => {
-      //this._switchToClickTrigger();
-
-    
-      console.log("aaa", targetEl != (e.target as HTMLElement))
 
       if(this.elDropDown != (e.target as HTMLElement) && targetEl != (e.target as HTMLElement) && !targetEl.contains(e.target as HTMLElement) && !this.elDropDown.contains(e.target as HTMLElement))  
       {
@@ -97,11 +91,6 @@ export class MozoTransferForm {
       }
 
     });
-
-    // var el = new SimpleBar(document.getElementById('myElement'));
-    // el.getScrollElement().addEventListener('scroll', function() {
-    //   console.log("aaaa")
-    // });
   }
 
   showDropDown() {
@@ -122,9 +111,6 @@ export class MozoTransferForm {
       this.addressIsWrong = false
     }
 
-    console.log(this.toAddressState)
-    //ShowMessage.presentPopover(event, { className: "widh-md dropdown" })
-    //let popoverController = document.querySelector(event.target);
     event.target.focus()
   }
 
@@ -158,13 +144,12 @@ export class MozoTransferForm {
           <input type="text" value={this.toAddressState} onInput={(e) => this.handleChangeAddress(e)} />
           <label>Receiver Address</label>
           {this.addressIsWrong && <small class="text-error">{this.toAddressState.toString().trim() == "" ? "This field is required" : "Recipient address is invalid"}</small>}
-          {/* <mozo-dropdown name="Import from address book"></mozo-dropdown> */}
           <br/>
           <a id="importAddress" class="mt-x-sm" onClick={(e) => {
             this.showDropDownHandle(e)
           }}> <small class="text-inline"><svg class="small" xmlns="http://www.w3.org/2000/svg" width="9" height="12" viewBox="0 0 9 12">
             <path fill="#5A9CF5" fill-rule="evenodd" d="M1.854 1.034C2.586.344 3.468 0 4.5 0c1.032 0 1.914.345 2.646 1.034.732.69 1.098 1.52 1.098 2.491 0 .972-.366 1.803-1.098 2.492-.732.69-1.614 1.034-2.646 1.034-1.032 0-1.914-.345-2.646-1.034-.732-.69-1.098-1.52-1.098-2.492 0-.971.366-1.802 1.098-2.491zM0 10.594c0-.747.414-1.405 1.242-1.975.828-.571 1.914-.856 3.258-.856 1.308 0 2.385.285 3.231.856C8.577 9.189 9 9.847 9 10.593c0 .373-.429.7-1.287.983C6.855 11.86 5.784 12 4.5 12c-1.344 0-2.43-.141-3.258-.424C.414 11.294 0 10.966 0 10.593z" />
-          </svg>&nbsp; Import from address book</small></a>
+          </svg>&nbsp; Select from address book</small></a>
         </div>
         <div id="drop-down-address-book" class="drop-down">
             <mozo-address-book></mozo-address-book>

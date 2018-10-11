@@ -15,7 +15,7 @@ export class MozoMessageTransferFail {
   render() {
     return [
       <div class="mozo-box">
-        <h5>Send Failed</h5>
+        <h3>Send Failed</h3>
       </div>,
       <div class="mozo-box text-center mt-lg line-sm">
         <div class="form-group mt-md">

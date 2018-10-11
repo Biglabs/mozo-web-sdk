@@ -25,10 +25,6 @@ declare global {
   interface HTMLAttributes {}
 }
 
-import 'st-popup-menu';
-import '@ionic/core';
-import 'ionicons';
-
 
 declare global {
 
@@ -59,40 +55,6 @@ declare global {
     export interface MozoAddressBookAttributes extends HTMLAttributes {
       'coinType'?: string;
       'onSelectAddressBook'?: (event: CustomEvent) => void;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface MozoDropdown {
-      'name': string;
-    }
-  }
-
-  interface HTMLMozoDropdownElement extends StencilComponents.MozoDropdown, HTMLStencilElement {}
-
-  var HTMLMozoDropdownElement: {
-    prototype: HTMLMozoDropdownElement;
-    new (): HTMLMozoDropdownElement;
-  };
-  interface HTMLElementTagNameMap {
-    'mozo-dropdown': HTMLMozoDropdownElement;
-  }
-  interface ElementTagNameMap {
-    'mozo-dropdown': HTMLMozoDropdownElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'mozo-dropdown': JSXElements.MozoDropdownAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface MozoDropdownAttributes extends HTMLAttributes {
-      'name'?: string;
-      'onOnToggle'?: (event: CustomEvent) => void;
     }
   }
 }
@@ -338,6 +300,7 @@ declare global {
   namespace JSXElements {
     export interface MozoScrollContainerAttributes extends HTMLAttributes {
       'maxHeight'?: string;
+      'onEndBottomScrollHandle'?: (event: CustomEvent) => void;
     }
   }
 }
@@ -412,86 +375,6 @@ declare global {
       'amount'?: number;
       'toAddress'?: string;
       'value'?: string;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface MyComponent {
-      'first': string;
-      'last': string;
-    }
-  }
-
-  interface HTMLMyComponentElement extends StencilComponents.MyComponent, HTMLStencilElement {}
-
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
-  };
-  interface HTMLElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
-  }
-  interface ElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'my-component': JSXElements.MyComponentAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface MyComponentAttributes extends HTMLAttributes {
-      'first'?: string;
-      'last'?: string;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
-    interface StAutoComplete {
-      'backgroundColor': string;
-      'borderColor': string;
-      'borderWidth': string;
-      'delay': number;
-      'target': string;
-      'trigger': string;
-    }
-  }
-
-  interface HTMLStAutoCompleteElement extends StencilComponents.StAutoComplete, HTMLStencilElement {}
-
-  var HTMLStAutoCompleteElement: {
-    prototype: HTMLStAutoCompleteElement;
-    new (): HTMLStAutoCompleteElement;
-  };
-  interface HTMLElementTagNameMap {
-    'st-auto-complete': HTMLStAutoCompleteElement;
-  }
-  interface ElementTagNameMap {
-    'st-auto-complete': HTMLStAutoCompleteElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'st-auto-complete': JSXElements.StAutoCompleteAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface StAutoCompleteAttributes extends HTMLAttributes {
-      'backgroundColor'?: string;
-      'borderColor'?: string;
-      'borderWidth'?: string;
-      'delay'?: number;
-      'onHide'?: (event: CustomEvent) => void;
-      'onShow'?: (event: CustomEvent) => void;
-      'target'?: string;
-      'trigger'?: string;
     }
   }
 }

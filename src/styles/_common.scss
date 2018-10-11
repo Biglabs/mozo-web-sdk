@@ -6,6 +6,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: $text-color;
   font-size: 14px;
+  overflow: auto;
+  position: static;
 }
 
 h1,
@@ -44,8 +46,9 @@ h6 {
   cursor: pointer;
 }
 
-a.text-link {
+a, a.text-link {
   cursor: pointer;
+  color: $primary-color;
 }
 
 .text-primary {
@@ -98,6 +101,11 @@ a.text-link {
 
 .mt-x-sm {
   margin-top: 6px;
+  display: inline-block;
+}
+
+.mb-x-sm {
+  margin-bottom: 6px;
   display: inline-block;
 }
 
@@ -188,4 +196,17 @@ small {
 
 .no-data {
   text-align: center;
+}
+.loading-more {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+}
+
+.mozo-hide {
+  display: none;
+}
+
+.mozo-show {
+  display: block;
 }

@@ -7,7 +7,6 @@ export const config: Config = {
     { components: ['my-component'] },
     { components: ['mozo-transfer'] },
     { components: ['mozo-offchain'] },
-    { components: ['mozo-dropdown'] },
     { components: ['mozo-address-book'] },
     { components: ['mozo-history'] }
   ],

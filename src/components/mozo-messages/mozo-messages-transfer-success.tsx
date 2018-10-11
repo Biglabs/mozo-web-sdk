@@ -1,5 +1,4 @@
 import { Component, Method, Prop, State } from "@stencil/core";
-//import { ShowMessage } from "../../utils/helpers"
 import { Services } from "../../services";
 
 @Component({
@@ -25,7 +24,6 @@ export class MozoMessageTransferSuccess {
         const responce = await Services.getTxStatus({ txhash: hash })
         if (responce) {
           if (responce.status == "SUCCESS") {
-            console.log(responce.data)
             this.status = responce.data.status
             if (responce.data.status != "PENDING") {
               clearInterval(this.getStatusInterval)
@@ -95,7 +93,7 @@ export class MozoMessageTransferSuccess {
 
     return [
       <div class="mozo-box">
-        <h5>Send Complete</h5>
+        <h3>Send Complete</h3>
       </div>,
       <div class="mozo-box text-center">
         <div class="form-group">

@@ -2,11 +2,11 @@
 
 # mozo-sdk-ui
 
-mozo-skd-ui is a web component built with [Stencil](https://stenciljs.com/).
+mozo-sdk-ui is a web component built with [Stencil](https://stenciljs.com/).
 This SDK will be used to integrate the Web Application with the MOZO desktop wallet.
 
 
-## Getting Started
+## Run the sample
 
 To try this component:
 
@@ -23,7 +23,7 @@ npm install
 npm start
 ```
 
-## Using this component
+## Using this component with different JS frameworks 
 
 ### Node Modules
 - Run `npm install mozo-sdk-ui --save`
