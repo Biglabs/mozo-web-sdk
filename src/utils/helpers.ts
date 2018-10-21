@@ -191,7 +191,7 @@ async function TransactionDetail(data) {
       <h3>Transaction Detail</h3>
     </div>
     <div class="mozo-box text-center mt-lg line-sm">
-    <h5 class="text-primary">${data.status}</h3>
+    <h3 class="text-primary">${data.status}</h3>
     <label class="form-label"><i>${data.timeConverted}</i></label>
     
     <div class="form-group mt-md">

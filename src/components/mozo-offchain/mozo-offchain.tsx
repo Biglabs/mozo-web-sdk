@@ -25,6 +25,8 @@ export class MozoOffChain {
 
   @Element() el!: HTMLElement;
 
+  getBalanceInterval: number;
+
   @Method()
   async transferMozo(e) {
     e.preventDefault()
@@ -64,6 +66,8 @@ export class MozoOffChain {
     //   this.amountIsWrong = false
     // }
 
+    const self = this
+
     let result = await Services.checkWallet()
     if (result) {
       if (result.status == "SUCCESS") {
@@ -74,12 +78,32 @@ export class MozoOffChain {
             this.amountState = walletResult.data.balance
             this.addressState = walletResult.data.address
             this.accessWallet = true
+
+            this.getBalanceInterval = window.setInterval(() => {
+              self.getNewBalance()
+            }, 5000)
+
+            
           } else {
             ShowMessage.showTransferFail()
           }
         }
       } else {
         this.accessWallet = false
+      }
+    }
+  }
+
+  componentDidUnload() {
+    window.clearInterval(this.getBalanceInterval);
+  }
+
+  async getNewBalance() {
+    const walletResult = await Services.getWalletBalance({ network: "SOLO" })
+    if (walletResult) {
+      if (walletResult.status == "SUCCESS") {
+        this.amountState = walletResult.data.balance
+        this.addressState = walletResult.data.address
       }
     }
   }

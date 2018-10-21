@@ -27,6 +27,8 @@ export class MozoHistory {
   @State() isEndLoadMore: boolean = false
   @State() accessWallet: boolean = true
 
+  getNewHistoryInterval: number
+
   @Listen('endBottomScrollHandle')
   async selectAddressBookCompletedHandler(event: CustomEvent) {
     if (!this.isDataLoading && !this.isEndLoadMore) {
@@ -38,7 +40,7 @@ export class MozoHistory {
       }
       let scrollContainer = event.detail.querySelector(".simplebar-content")
       data.map(async (item) => {
-        !item.timeConverted && (item.timeConverted =  this.convertTime(item.time * 1000))
+        !item.timeConverted && (item.timeConverted = this.convertTime(item.time * 1000))
         !item.status && (item.status = this.showStatus(item.txStatus, item.addressFrom))
         let newEl = document.createElement("div")
         newEl.classList.add("item")
@@ -52,7 +54,7 @@ export class MozoHistory {
                             <label class="${'text ' + item.status.toLowerCase()}" >${item.amount} Mozo</label>
                             <label class="form-label">₩${item.exchange_rates[1].value.toFixed(2)}</label>
                           </div>`
-       
+
         scrollContainer.append(newEl)
       })
 
@@ -62,6 +64,7 @@ export class MozoHistory {
 
 
   async componentDidLoad() {
+    const self = this
     let result = await Services.checkWallet()
     if (result) {
       if (result.status == "SUCCESS") {
@@ -72,6 +75,11 @@ export class MozoHistory {
             this.historyData = txHistory.data
             this.noData = this.historyData.length <= 0
             this.isEndLoadMore = this.historyData.length < this.size
+
+            this.getNewHistoryInterval = window.setInterval(() => {
+              self.getNewHistory()
+            }, 5000)
+
           } else {
             ShowMessage.showTransferFail()
           }
@@ -82,6 +90,9 @@ export class MozoHistory {
     }
   }
 
+  componentDidUnload() {
+    window.clearInterval(this.getNewHistoryInterval);
+  }
 
   async componentWillLoad() {
     let result = await Services.checkWallet()
@@ -100,6 +111,15 @@ export class MozoHistory {
 
       } else {
         //this.accessWallet = false
+      }
+    }
+  }
+
+  async getNewHistory() {
+    const txHistory = await Services.getTxHistory({ network: "SOLO", size: this.size })
+    if (txHistory) {
+      if (txHistory.status == "SUCCESS") {
+        this.historyData = txHistory.data
       }
     }
   }
@@ -133,7 +153,7 @@ export class MozoHistory {
   }
 
   renderItem(item) {
-    !item.timeConverted && (item.timeConverted =  this.convertTime(item.time * 1000))
+    !item.timeConverted && (item.timeConverted = this.convertTime(item.time * 1000))
     !item.status && (item.status = this.showStatus(item.txStatus, item.addressFrom))
 
     return <div class="item" onClick={() => {
@@ -153,11 +173,11 @@ export class MozoHistory {
   render() {
     return (
       <div class="mozo-box list">
-      {this.accessWallet ? <label class="form-label">Mozo Transaction History</label>: 
-              <label class="text-note">You must be <a class="text-link" onClick={() => this.login()
-              
-              }>Login</a> to show history transaction</label>}
-        
+        {this.accessWallet ? <label class="form-label">Mozo Transaction History</label> :
+          <label class="text-note">You must be <a class="text-link" onClick={() => this.login()
+
+          }>Login</a> to show history transaction</label>}
+
         {this.noData && (<div class="mozo-panel no-data mt-md"><label class="form-label"><i>No transaction history</i></label></div>)}
 
         {this.historyData && <mozo-scroll-container maxHeight={this.maxHeight} class="mt-md">
@@ -165,7 +185,7 @@ export class MozoHistory {
             return this.renderItem(item)
           })}
         </mozo-scroll-container>}
-        <div class={"loading-more " + (this.isDataLoading ? "mozo-show": "mozo-hide")}>
+        <div class={"loading-more " + (this.isDataLoading ? "mozo-show" : "mozo-hide")}>
           <svg xmlns="http://www.w3.org/2000/svg" width="120" height="10" viewBox="0 0 120 30" fill="#5a9cf5">
             <circle cx="15" cy="15" r="12.1019">
               <animate attributeName="r" from="15" to="15" begin="0s" dur="0.8s" values="15;9;15" calcMode="linear" repeatCount="indefinite" />
