@@ -51,7 +51,8 @@ npm start
 
 ### In a Reactjs/Angular/VueJs/Webpack app
 - Run `npm install mozo-sdk-ui --save`
-- Add this import to your root component or root module: `import { defineCustomElements } from 'mozo-sdk-ui';`;
+- Add this import to your root component or root module: 
+- Add mozo sdk style `import mozo-sdk-ui/dist/mozo-sdk-ui.css`;
 - Call `defineCustomElements(window);` in your js file
 - [Refer to Stencil](https://stenciljs.com/docs/overview)
 
