@@ -5,6 +5,20 @@
 mozo-sdk-ui is a web component built with [Stencil](https://stenciljs.com/).
 This SDK will be used to integrate the Web Application with the MOZO desktop wallet.
 
+## Main Components
+
+```html
+<mozo-transfer></mozo-transfer>
+```
+
+```html
+<mozo-offchain></mozo-offchain>
+```
+
+```html
+<mozo-history></mozo-history>
+```
+
 
 ## Run the sample
 
@@ -28,14 +42,14 @@ npm start
 ### Node Modules
 - Run `npm install mozo-sdk-ui --save`
 - Put a script tag similar to this `<script src='node_modules/mozo-sdk-ui/dist/mozo-sdk-ui.js></script>` in the head of your index.html
-- Then you can use the element `<mozo-sdk-ui>` anywhere in your template, JSX, html etc
+- Then you can use the element `<mozo-transfer>` `<mozo-offchain>` `<mozo-history>`anywhere in your template, JSX, html etc
 
 ### In a stencil-starter app
 - Run `npm install mozo-sdk-ui --save`
 - Add this import to your root component or root module: `import 'mozo-sdk-ui'`;
-- Then you can use the element `<mozo-sdk-ui>` anywhere in your template, JSX, html etc
+- Then you can use the element `<mozo-transfer>` `<mozo-offchain>` `<mozo-history>`anywhere in your template, JSX, html etc
 
-### In a React/Rollup/Webpack app
+### In a Reactjs/Angular/VueJs/Webpack app
 - Run `npm install mozo-sdk-ui --save`
 - Add this import to your root component or root module: `import { defineCustomElements } from 'mozo-sdk-ui';`;
 - Call `defineCustomElements(window);` in your js file
