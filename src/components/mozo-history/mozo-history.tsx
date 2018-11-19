@@ -52,7 +52,7 @@ export class MozoHistory {
                           </div>
                           <div class="item-right">
                             <label class="${'text ' + item.status.toLowerCase()}" >${item.amount} Mozo</label>
-                            <label class="form-label">₩${item.exchange_rates[1].value.toFixed(2)}</label>
+                            <label class="form-label">${item.exchange_rates.value?"₩" + item.exchange_rates[1].value.toFixed(2): ""}</label>
                           </div>`
 
         scrollContainer.append(newEl)
@@ -165,7 +165,7 @@ export class MozoHistory {
       </div>
       <div class="item-right">
         <label class={"text " + item.status.toLowerCase()} >{item.amount} Mozo</label>
-        <label class="form-label">₩{item.exchange_rates[1].value.toFixed(2)}</label>
+        <label class="form-label">{item.exchange_rates.value?"₩" + item.exchange_rates[1].value.toFixed(2): ""}</label>
       </div>
     </div>
   }

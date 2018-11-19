@@ -2,6 +2,7 @@
 @import "../../styles/mixins";
 
 mozo-history {
+  display: block;
   .scroll-bar-container {
     max-height: 100%;
   }
