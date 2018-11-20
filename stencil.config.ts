@@ -11,6 +11,7 @@ export const config: Config = {
     { components: ['mozo-history'] }
   ],
   globalStyle: 'src/styles/app.scss',
+  globalScript: 'src/index.ts',
   plugins: [
     sass()
   ],
