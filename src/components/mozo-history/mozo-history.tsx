@@ -78,7 +78,7 @@ export class MozoHistory {
 
             this.getNewHistoryInterval = window.setInterval(() => {
               self.getNewHistory()
-            }, 5000)
+            }, 60000)
 
           } else {
             ShowMessage.showTransferFail()

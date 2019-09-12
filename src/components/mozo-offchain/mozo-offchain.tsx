@@ -81,7 +81,7 @@ export class MozoOffChain {
 
             this.getBalanceInterval = window.setInterval(() => {
               self.getNewBalance()
-            }, 5000)
+            }, 60000)
 
             
           } else {
